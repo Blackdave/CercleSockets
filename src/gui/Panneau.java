@@ -36,7 +36,6 @@ public void mouseClicked(MouseEvent e) {
 	if(r != null){
 		//r.quiSuisje();
 		r.envoyerPoint(new Point(e.getX(),e.getY()));
-		repaint();
 	}
 	else{
 		listPoint.add(new Point(e.getX(), e.getY()));
@@ -54,8 +53,9 @@ public void run() {
 		//Permet de tout de suite prendre en compte la réception d'un point quand un point est envoyé
 		synchronized(this) {
 			while((unPoint = r.recevoirPoint()) != null){
-				System.out.println("Point recu : "+ unPoint.getX() + unPoint.getY());
+				System.out.println("Point recu : "+ unPoint.getX() + " "+ unPoint.getY());
 				listPoint.add(unPoint);
+				repaint();
 			}
 		}
 
