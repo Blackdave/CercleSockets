@@ -26,7 +26,7 @@ public class Reseau {
 		try {
 			socket = (new ServerSocket(10666)).accept();
 		} catch (Exception e) {
-			//socket = null;
+			e.printStackTrace();
 		}
 	}
 	
@@ -35,7 +35,7 @@ public class Reseau {
 			ObjectOutputStream envoie = new ObjectOutputStream(socket.getOutputStream());
 			envoie.writeObject(p);
 		} catch (Exception e) {
-			//socket = null;
+			e.printStackTrace();
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class Reseau {
 				ObjectInputStream recevoir = new ObjectInputStream(socket.getInputStream());
 				result = (Point)recevoir.readObject();
 			} catch (Exception e) {
-				//socket = null;
+				e.printStackTrace();
 			}
 			return result;
 	}
