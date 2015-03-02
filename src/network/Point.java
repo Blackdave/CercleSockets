@@ -1,8 +1,9 @@
 package network;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class Point {
+public class Point implements Serializable{
 	private int X;
 	private int Y;
 	private Color color = Color.blue;
